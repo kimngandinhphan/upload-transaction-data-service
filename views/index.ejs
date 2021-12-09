@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Data Uploads</title>
+</head>
+<body>
+  <div class="container">
+    <h1>Data Upload</h1>
+    <%= typeof msg != 'undefined' ? msg : '' %>
+    <form action="/upload" method="POST" enctype="multipart/form-data">
+      <div>
+        <div>
+          <span>File</span>
+          <input name="myData" type="file">
+        </div>
+      </div>
+      <button type="submit" class="">Submit</button>
+    </form>
+    <br>
+    <!-- <img src="<%= typeof file != 'undefined' ? file : '' %>" class="responsive-img"> -->
+    <h3>Transactions: </h3>
+    <div>
+      <ul>
+        <%= typeof data != 'undefined' ? data.map(({ transaction_id,amount,currency_code,transaction_date,trans_status,create_at,update_at }) => `${transaction_id} - ${amount} - ${currency_code} - ${transaction_date} - ${trans_status} - ${create_at} - ${update_at}`) : '' %>
+      </ul>
+    </div>
+  </div>
+
+  <script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>  
+</body>
+</html>
